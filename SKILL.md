@@ -1,6 +1,6 @@
 ---
 name: github-paths
-description: Популярные страницы репозиториев из GitHub
+description: Популярные страницы репозиториев из GitHub API
 ---
 
 ## Когда использовать
@@ -34,12 +34,15 @@ php .opencode/skills/github-paths/paths.php --repo my-project -l 50
 
 # Сортировка по уникальным посетителям
 php .opencode/skills/github-paths/paths.php --sort unique
+
+# Для репозитория по полному пути
+php .opencode/skills/github-paths/paths.php --repo username/repo
 ```
 
 ## Результат
 
 `github_reports/YYYY-MM-DD/`:
-- `github_pages_YYYY-MM-DD_HH-MM-SS.csv` / `.md`
+- `github_pages_YYYY-MM-DD_HH-MM-SS.csv` / `.md` — популярные страницы
 
 ### Поля в отчёте
 
@@ -49,3 +52,7 @@ php .opencode/skills/github-paths/paths.php --sort unique
 | `title` | Заголовок (если есть) |
 | `views` | Просмотров |
 | `unique` | Уникальные посетители |
+
+## Ограничения
+
+⚠️ GitHub API возвращает максимум 10 записей для popular paths. Данные доступны только за последние 14 дней.
